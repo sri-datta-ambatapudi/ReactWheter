@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Footer from "./Footer";
+import toast from "react-hot-toast";
 
 import Greetings from "./Greetings";
 function Header(){
@@ -74,15 +75,16 @@ function Header(){
 
         if(api.data ==="Sucess")
         {
-          window.confirm("Sucess");
+          toast.success('Successfull Signup!');
+
         }
         else{
-          window.confirm("Failed");
+          toast.error( api.data);
           
         }
     }
     catch( error){
-      window.confirm(error.message); 
+      toast.error(error.message)
      
       
     }
@@ -102,14 +104,15 @@ function Header(){
 
       if(responce.data==="login Sucess")
       {
-        window.confirm("Login");
+        toast.success('Successfull Login!');
       }
       else{
-        window.confirm("Failde");
+        toast.error(responce.data);
       }
     }
     catch(error){
-      window.confirm(error.message)
+      
+      toast.error(error.message)
       
     }
   }
